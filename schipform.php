@@ -16,11 +16,13 @@ $username = "root";
 $password = "";
 $db = "voorbeeldDb";
 
-$schipnaam = $_POST['schipnaam'];
+$schipnaam = $_POST['schipnaam'] ?? "";
+$geschiedenis = $_POST['geschiedenis'] ?? "";
+$kenmerk = $_POST['kenmerk'] ?? "";
+
+if(isset($_POST['schipSubmitBtn'])) {$schipnaam = $_POST['schipnaam'];
 $geschiedenis = $_POST['geschiedenis'];
 $kenmerk = $_POST['kenmerk'];
-
-if(isset($_POST['schipSubmitBtn'])) {
 insertSchip();
 }       
 $conn = mysqli_connect($servername, $username,$password,$db);
